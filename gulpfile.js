@@ -25,6 +25,14 @@ const paths = {
 
 function sassCompiler(done) {
     src(paths.sass)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(dest(paths.sassDest));
+    done()
+}
+
+function sassCompilerMin(done) {
+    src(paths.sass)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
@@ -84,6 +92,6 @@ function watchForChanges(done) {
 }
 
 
-const mainFunctions = parallel(handleKits, sassCompiler, javaScript, convertImages)
+const mainFunctions = parallel(handleKits,sassCompiler, sassCompilerMin, javaScript, convertImages)
 exports.cleanStuff = cleanStuff
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges)

@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.burger-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1em;
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  z-index: 999;
+}
+.burger-btn .fa-bars {
+  font-size: 4rem;
+}
+
+.nav .nav-items {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(105%);
+  background-color: #cdfcf6;
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.nav .nav-items .nav-link {
+  position: relative;
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.5em 2em;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
+.nav .burger-active {
+  transform: translateX(0);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 75vh;
+  background-image: linear-gradient(90deg, rgba(9, 9, 121, 0.6), rgba(0, 212, 255, 0.6)), url(../img/hero-small.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.header h1 {
+  color: #fff;
+}
